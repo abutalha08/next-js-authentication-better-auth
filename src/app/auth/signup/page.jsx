@@ -2,9 +2,12 @@
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 
 const SignUpPage = () => {
+
+    const router = useRouter();
 
     const onSubmit = async(e) => {
         e.preventDefault();
@@ -16,7 +19,7 @@ const SignUpPage = () => {
             name: userData.name,
             email: userData.email,
             password: userData.password, 
-            callbackURL: '/'
+            // callbackURL: '/'  not working for that reason we use useRouter()
         })
 
         console.log("Sign up response:", {data, error})
@@ -25,6 +28,7 @@ const SignUpPage = () => {
         }
         if(data) {
             alert("Sign up successful! Please check your email to verify your account.");
+            router.push("/");
         }
         
     };
