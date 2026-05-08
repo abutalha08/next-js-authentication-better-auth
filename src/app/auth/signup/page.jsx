@@ -28,7 +28,7 @@ const SignUpPage = () => {
         }
         if(data) {
             alert("Sign up successful! Please check your email to verify your account.");
-            router.push("/");
+            router.push("/auth/signin");
         }
         
     };
