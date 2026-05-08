@@ -22,6 +22,8 @@ const SignUpPage = () => {
             // callbackURL: '/'  not working for that reason we use useRouter()
         })
 
+        await authClient.signOut()
+
         console.log("Sign up response:", {data, error})
         if(error) {
             alert("Error signing up: " + error.message);
